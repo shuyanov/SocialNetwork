@@ -2,9 +2,8 @@
   grid-area: n;
   width: 500;
   background-color: #e9f0f5;
-  }
+}
 
-  .item{
-    color: cadetbluek;
-    font-size: 23px;
-  }
+.item {
+  font-size: 23px;
+}
