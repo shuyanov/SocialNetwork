@@ -3,7 +3,7 @@ import classes from './NavBar.module.css'
 const NavBar = () => {
     return (
         <nav className={classes.nav}>
-        <div className={classes.item}>
+        <div className={`${classes.item} ${classes.active}`}>
           <a> Profile </a>
         </div>
         <div className={classes.item}>

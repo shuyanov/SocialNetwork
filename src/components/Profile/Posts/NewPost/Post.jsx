@@ -1,10 +1,14 @@
 import NewPost from './Post.module.css'
 
-const Post = () => {
+const Post = (props) => {
+
   return (
     <div className={NewPost.item}>
       <img src='https://upload.wikimedia.org/wikipedia/ru/thumb/b/bc/Garfield_the_Cat.svg/1200px-Garfield_the_Cat.svg.png' />
-      Post
+      {props.write}
+      <div>
+        <span>like {props.LikeCounts}</span>
+      </div>
     </div>
   )
 }

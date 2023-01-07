@@ -1,9 +1,12 @@
 .nav {
   grid-area: n;
-  width: 500;
   background-color: #e9f0f5;
 }
 
 .item {
-  font-size: 23px;
+  color: white;
+}
+
+.active {
+  color: gold;
 }
