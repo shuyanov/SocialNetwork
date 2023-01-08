@@ -1,0 +1,25 @@
+.Dialogs{
+    display: grid;
+    grid-template-columns: 2fr 10fr;
+}
+
+.DialogItems{
+    padding: 10px;
+}
+
+.DialogItems .Dialog{
+    text-decoration: none;
+    color: rgb(131, 109, 206);
+}
+
+.MassagItems{
+    padding: 10px;
+}
+
+.DialogItems .active{
+    color: gold;
+}
+
+.MassagItems .Massag{
+    color: rgb(99, 84, 149);
+}

@@ -1,13 +1,22 @@
+.Dialogs{
+  display: grid;
+  grid-template-columns: 10fr;
+}
+
 .nav {
+  padding: 10px;
+
   grid-area: n;
   background-color: #e9f0f5;
 }
 
 .item a {
+
   color: rgb(131, 109, 206);
   text-decoration: none;
 }
 
 .item a.active {
+  padding: 5px;
   color: #ee492a;;
 }
