@@ -9,11 +9,11 @@ const PostsNews = () => {
     {id: 3, write: "it's my cat", Like: 182}
   ]
 
+  let postElements = postData.map( p => <Post write= {p.write} LikeCounts = {p.Like} />)
+
   return (
     <div className={postsContent.content}>
-      <Post write= {postData[0].write} LikeCounts = {postData[0].Like} />
-      <Post write= {postData[1].write} LikeCounts = {postData[1].Like} />
-      <Post write= {postData[2].write} LikeCounts = {postData[2].Like} />
+      {postElements}
     </div>
   )
 }
