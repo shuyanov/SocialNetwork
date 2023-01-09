@@ -1,12 +1,10 @@
 import PostsNews from './Posts/Posts';
-import sd from './Profile.module.css';
+import ProfileInfo from './ProfileInfo';
 
-const Profile = () => {
+const Profile = (props) => {
   return (
     <div>
-      <div className={sd.post}>
-        <img src='https://gamemag.ru/images/cache/News/News167810/7ed34006a1-2_1390x600.jpg' />
-      </div>
+      <ProfileInfo />
       <PostsNews />
     </div>
   )
