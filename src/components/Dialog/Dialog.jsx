@@ -1,10 +1,9 @@
 import classes from './Dialog.module.css';
 import { NavLink } from "react-router-dom";
+import DialogsData from './inedxDialog'
+
 
 const activeLink = ({ isActive }) => isActive ? classes.active : classes.Dialog;
-
-
-
 
 const DialogItem = (props) => {
     let pathDialog = '/dialogs/' + props.id;
@@ -24,13 +23,13 @@ const MassagItems = (props) => {
 
 
 const Dialog = (props) => {
-    let DialogsData = [
-        { id: 1, user: "Max" },
-        { id: 2, user: "CloneMax1" },
-        { id: 3, user: "CloneMax2" },
-        { id: 4, user: "CloneMax3" },
-        { id: 5, user: "CloneMax4" }
-    ]
+    // let DialogsData = [
+    //     { id: 1, user: "Max" },
+    //     { id: 2, user: "CloneMax1" },
+    //     { id: 3, user: "CloneMax2" },
+    //     { id: 4, user: "CloneMax3" },
+    //     { id: 5, user: "CloneMax4" }
+    // ]
 
     let MassagData = [
         { id: 1, massag: "Hello" },
