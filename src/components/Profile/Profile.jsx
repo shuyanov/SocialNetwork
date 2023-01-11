@@ -2,10 +2,11 @@ import PostsNews from './Posts/Posts';
 import ProfileInfo from './ProfileInfo';
 
 const Profile = (props) => {
+
   return (
     <div>
       <ProfileInfo />
-      <PostsNews />
+      <PostsNews postData = {props.postData}/>
     </div>
   )
 }
