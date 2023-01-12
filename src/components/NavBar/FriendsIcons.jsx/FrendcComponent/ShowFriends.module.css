@@ -1,0 +1,13 @@
+.friendsContent {
+
+  background-color: bisque;
+}
+
+.item img {
+  display:block;
+  padding: 5px;
+  
+  width: 60px;
+  height: 60px;
+  border-radius: 50px;
+}

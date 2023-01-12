@@ -11,7 +11,6 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 
 const App = (props) => {
-
   return (
     <BrowserRouter>
       <div className="app-wrapper">
@@ -19,8 +18,8 @@ const App = (props) => {
         <NavBar />
         <div className='app-wrapper-content'>
           <Routes>
-             <Route path="/dialogs" element={<Dialogs DialogsData={props.DialogsData} MassagData={props.MassagData} />} />
-              <Route path="/profile" element={<Profile postData = {props.postData}/>} />
+            <Route path="/dialogs" element={<Dialogs state={props.steam.DialogElements} />} />
+            <Route path="/profile" element={<Profile state={props.steam.PostsElements} />} />
           </Routes>
         </div>
       </div>

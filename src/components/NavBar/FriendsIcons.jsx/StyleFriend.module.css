@@ -1,0 +1,17 @@
+.friendsElements{
+   
+ } 
+
+ .friendswrapper{
+   display: grid;
+   grid-template-columns: repeat(3, 2fr);
+ }
+
+ .item{
+    color: #ee492a;
+    text-align: center;
+ }
+
+ .item .size{
+   font-size: 26px;
+}

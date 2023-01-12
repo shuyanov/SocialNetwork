@@ -8,4 +8,4 @@ const ProfileInfo = (props) => {
     </div>
 }
 
-export default ProfileInfo;
+export default ProfileInfo; 

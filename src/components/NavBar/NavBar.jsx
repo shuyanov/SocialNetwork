@@ -1,7 +1,9 @@
 import classes from './NavBar.module.css'
 import { NavLink } from "react-router-dom";
 
-const activeLink = ({isActive}) => isActive ? classes.active : classes.item; 
+import FriendsIcons from './FriendsIcons.jsx/FriendsIcons';
+
+const activeLink = ({ isActive }) => isActive ? classes.active : classes.item;
 
 const NavBar = () => {
   return (
@@ -20,6 +22,9 @@ const NavBar = () => {
       </div>
       <div className={classes.item}>
         <NavLink to='/setting' className={activeLink}>Setting</NavLink>
+      </div>
+      <div className={classes.size}>
+        <FriendsIcons></FriendsIcons>
       </div>
     </nav>
   )

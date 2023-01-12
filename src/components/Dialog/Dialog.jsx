@@ -22,8 +22,8 @@ const MassagItems = (props) => {
 
 const Dialog = (props) => {
 
-    let DialogElements = props.DialogsData.map(m => <DialogItem user={m.user} id={m.id} />)
-    let MassagElements = props.MassagData.map(d => <MassagItems massages={d.massag} />)
+    let DialogElements = props.state.DialogsData.map(m => <DialogItem user={m.user} id={m.id} />)
+    let MassagElements = props.state.MassagData.map(d => <MassagItems massages={d.massag} />)
 
     return (
         <div className={classes.Dialogs}>
