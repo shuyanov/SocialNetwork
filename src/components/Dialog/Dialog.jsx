@@ -1,3 +1,4 @@
+import React from 'react';
 import classes from './Dialog.module.css';
 import { NavLink } from "react-router-dom";
 
@@ -20,6 +21,14 @@ const MassagItems = (props) => {
     )
 }
 
+let newMassag = React.createRef();
+
+let addMassag = () => {
+    let text = newMassag.current.value;
+    alert(text);
+}
+
+
 const Dialog = (props) => {
 
     let DialogElements = props.state.DialogsData.map(m => <DialogItem user={m.user} id={m.id} />)
@@ -27,11 +36,15 @@ const Dialog = (props) => {
 
     return (
         <div className={classes.Dialogs}>
-            <div className={classes.DialogItems}>
-                {DialogElements}
-            </div>
-            <div className={classes.MassagItems}>
-                {MassagElements}
+                <div className={classes.DialogItems}>
+                    {DialogElements}
+                </div>
+                <div className={classes.MassagItems}>
+                    {MassagElements}
+                </div>
+            <div>
+                <textarea ref = {newMassag} ></textarea>
+                <button onClick={addMassag} className={classes.button}>ADD</button>
             </div>
         </div>
     )

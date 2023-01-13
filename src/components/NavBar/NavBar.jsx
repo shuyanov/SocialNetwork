@@ -5,7 +5,8 @@ import FriendsIcons from './FriendsIcons.jsx/FriendsIcons';
 
 const activeLink = ({ isActive }) => isActive ? classes.active : classes.item;
 
-const NavBar = () => {
+const NavBar = (props) => {
+
   return (
     <nav className={`${classes.nav}`}>
       <div className={classes.item}>
@@ -24,7 +25,7 @@ const NavBar = () => {
         <NavLink to='/setting' className={activeLink}>Setting</NavLink>
       </div>
       <div className={classes.size}>
-        <FriendsIcons></FriendsIcons>
+        <FriendsIcons nameState={props.state.DialogsData}></FriendsIcons>
       </div>
     </nav>
   )

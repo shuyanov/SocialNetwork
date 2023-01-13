@@ -4,15 +4,19 @@
 }
 
 .DialogItems{
-    padding: 10px;
 }
 
 .DialogItems .Dialog{
+    grid-template-columns: 2fr 10fr;
     text-decoration: none;
     color: rgb(131, 109, 206);
 }
 
 .MassagItems{
+    display: grid;
+
+    grid-template-columns: repeat(2, 5fr);
+    grid-template-rows: repeat(2, 100px);
     padding: 10px;
 }
 
@@ -22,4 +26,11 @@
 
 .MassagItems .Massag{
     color: rgb(99, 84, 149);
+}
+
+.button{
+    padding: 10px;
+
+    width: 60px;
+    height: 40px;
 }
