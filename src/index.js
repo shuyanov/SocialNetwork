@@ -3,21 +3,26 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import { BrowserRouter } from 'react-router-dom';
 
-import allMatirial from './redux/steam'
-import { BrowserRouter } from "react-router-dom";
+import store from './redux/steam';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
-root.render(
-  <BrowserRouter>
-    <React.StrictMode>
-      <App steam={allMatirial} />
-    </React.StrictMode>
-  </BrowserRouter>
-);
 
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
+export let renderEntireTree = (state) => {
+    root.render(
+        <BrowserRouter>
+            <React.StrictMode>
+                <App
+                    steam={store.getState()}
+                    dispatch={store.dispatch.bind(store)}/>
+            </React.StrictMode>
+        </BrowserRouter>
+    );
+}
+
+store.subscribe(renderEntireTree);
+renderEntireTree(store.getState);
+reportWebVitals()
+
 

@@ -28,7 +28,6 @@ let addMassag = () => {
     alert(text);
 }
 
-
 const Dialog = (props) => {
 
     let DialogElements = props.state.DialogsData.map(m => <DialogItem user={m.user} id={m.id} />)
