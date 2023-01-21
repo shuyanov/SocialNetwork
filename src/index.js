@@ -4,7 +4,6 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { BrowserRouter } from 'react-router-dom';
-
 import store from './redux/steam';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
@@ -14,7 +13,7 @@ export let renderEntireTree = (state) => {
         <BrowserRouter>
             <React.StrictMode>
                 <App
-                    steam={store.getState()}
+                    state={state}
                     dispatch={store.dispatch.bind(store)}/>
             </React.StrictMode>
         </BrowserRouter>
@@ -22,7 +21,7 @@ export let renderEntireTree = (state) => {
 }
 
 store.subscribe(renderEntireTree);
-renderEntireTree(store.getState);
+renderEntireTree(store.getState());
 reportWebVitals()
 
 

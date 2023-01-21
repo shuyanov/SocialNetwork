@@ -1,21 +1,25 @@
 import Post from './NewPost/Post';
 import postsContent from './Posts.module.css'
 import React from 'react';
-import { type } from '@testing-library/user-event/dist/type';
+import { addPostActionCreate, newUpdatePostActionCreate } from '../../../redux/reducer-post';
+
 
 const PostsNews = (props) => {
 
   let postElements = props.postData.map(p => <Post write={p.write} LikeCounts={p.Like} />)
   let newPostElement = React.createRef();
 
-  let addpost = () => {
-    props.dispatch({type: "ADD-POST"});
+  let addPost = () => {
+    debugger
+    props.dispatch(addPostActionCreate());
   }
   
   let newUpdatePosts = () => {
+    
     let text = newPostElement.current.value;
-    props.dispatch({type: 'NEW-UPDATE-POST-TEXT', newText: text});
-  }
+    let action = newUpdatePostActionCreate(text);
+    props.dispatch(action)
+    };
 
   return (
     <div className={postsContent.content}>
@@ -28,7 +32,7 @@ const PostsNews = (props) => {
         </textarea>
       </div>
       <div>
-        <button onClick={addpost}>Добавить запись</button>
+        <button onClick={addPost}>Добавить запись</button>
       </div>
       {postElements}
     </div>
