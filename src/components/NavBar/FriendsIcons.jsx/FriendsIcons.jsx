@@ -10,9 +10,9 @@ const FriendsIcons = (props) => {
                         FRIENDS
                     </div>
                     <div className={friendsContent.friendswrapper}>
-                        <FriendElement name = {props.nameState[0].user} ></FriendElement>
-                        <FriendElement name = {props.nameState[1].user}></FriendElement>
-                        <FriendElement name = {props.nameState[2].user}></FriendElement>
+                        <FriendElement name={props.nameState[0].user} ></FriendElement>
+                        <FriendElement name={props.nameState[1].user}></FriendElement>
+                        <FriendElement name={props.nameState[2].user}></FriendElement>
                     </div>
                 </div>
             </div>

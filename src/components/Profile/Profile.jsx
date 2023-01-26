@@ -1,15 +1,11 @@
-import PostsNews from './Posts/Posts';
+import MyPostsContainer from './Posts/PostsConteiner';
 import ProfileInfo from './ProfileInfo';
 
-const Profile = (props) => {
-
+const Profile = () => {
   return (
     <div>
       <ProfileInfo />
-      <PostsNews
-        RenderPosts = {props.profilePage.newUpdatePosts}
-        postData={props.profilePage.postData}
-        dispatch={props.dispatch} />
+      <MyPostsContainer/>
     </div>
   )
 }

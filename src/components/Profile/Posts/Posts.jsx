@@ -1,25 +1,19 @@
 import Post from './NewPost/Post';
 import postsContent from './Posts.module.css'
 import React from 'react';
-import { addPostActionCreate, newUpdatePostActionCreate } from '../../../redux/reducer-post';
-
 
 const PostsNews = (props) => {
-
-  let postElements = props.postData.map(p => <Post write={p.write} LikeCounts={p.Like} />)
+  let state = props.PostsElements;
+  let postElements = state.map(p => <Post write={p.write} LikeCounts={p.Like} />)
   let newPostElement = React.createRef();
 
   let addPost = () => {
-    debugger
-    props.dispatch(addPostActionCreate());
+    props.addPost();
   }
-  
   let newUpdatePosts = () => {
-    
     let text = newPostElement.current.value;
-    let action = newUpdatePostActionCreate(text);
-    props.dispatch(action)
-    };
+    props.newUpdatePostText(text);
+  };
 
   return (
     <div className={postsContent.content}>
@@ -27,8 +21,8 @@ const PostsNews = (props) => {
         <textarea
           onChange={newUpdatePosts}
           ref={newPostElement}
-          value = {props.RenderPosts}
-          >
+          value={props.newUpdatePostsText}
+        >
         </textarea>
       </div>
       <div>

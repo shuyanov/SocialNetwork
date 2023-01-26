@@ -1,0 +1,35 @@
+<script>
+    let age = 55;
+    let age2 = age;
+
+    var a = {
+        name: "max",
+        protocol: 'good',
+        whether: true,
+        friends: ['friend1', 'friend2', 'frien3'],
+        classRoom: {
+            theather: {
+                name: 'Alex',
+                age: 33,
+            }
+        }
+    }
+
+    var c = a;
+    c.name = "Josh";
+    console.log(c);
+
+    var b = { ...a };
+    b.classRoom = {...a.classRoom};
+    b.classRoom.theather = {...a.classRoom.theather};
+    b.friends = [...a.friends];
+
+    b.classRoom.theather.name = "Alyi";
+    b.name = "Anna";
+    b.friends[0] = "kury";
+    b.classRoom.name = "georgi"
+    b.friends.push('1233422')
+    console.log(b)
+    a.friends.push('123')
+    console.log(a)
+</script>

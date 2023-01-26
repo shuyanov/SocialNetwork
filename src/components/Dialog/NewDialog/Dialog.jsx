@@ -1,24 +1,24 @@
 import React from 'react';
 import classes from './Dialog.module.css';
-import { NavLink } from "react-router-dom";
-import { addDialogActionCreate, newUpdateDialogText } from '../../../redux/reducer-dialog';
 import Massages from './NewMassag/Massages';
 import DialogItem from './NewMassag/DialogItem';
 
 
 const Dialog = (props) => {
-    let dialogElements = props.dialogsData.map(m => <DialogItem user={m.user} id={m.id} />)
-    let massagElements = props.massagsData.map(d => <Massages massages={d.massag}/>)
+
+    let state = props.DialogElements;
+
+    let dialogElements = state.DialogsData.map(m => <DialogItem user={m.user} id={m.id} />)
+    let massagElements = state.MassagData.map(d => <Massages massages={d.massag} />)
     let newMassag = React.createRef();
 
     let addMassag = () => {
-        props.dispatch(addDialogActionCreate())
+        props.addMassag()
     };
 
     let newUpdateDialog = () => {
-        let text = newMassag.current.value;
-        let action = newUpdateDialogText(text);
-        props.dispatch(action)
+        let newText = newMassag.current.value;
+        props.newUpdateDialogText(newText)
     };
 
     return (
@@ -33,7 +33,7 @@ const Dialog = (props) => {
                 <textarea
                     onChange={newUpdateDialog}
                     ref={newMassag}
-                    value={props.RenderDialog}
+                    value={state.newUpdateDialog}
                 >
                 </textarea>
                 <button onClick={addMassag}>ADD</button>

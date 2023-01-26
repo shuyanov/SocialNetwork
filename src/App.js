@@ -7,6 +7,7 @@ import './index'
 
 import {Routes, Route } from "react-router-dom";
 import Massag from './components/Dialog/Massag';
+import DialogContainer from './components/Dialog/NewDialog/DialogContainer';
 
 
 
@@ -14,20 +15,14 @@ const App = (props) => {
   return (
     <div className="app-wrapper">
       <Header />
-      <NavBar state={props.state.DialogElements} />
+      <NavBar/>
       <div className='app-wrapper-content'>
         <Routes>
           <Route path="/dialogs"
-            element={<Massag
-              dispatch={props.dispatch}
-              state={props.state.DialogElements}
-            />} />
+            element={<DialogContainer />} />
 
           <Route path="/profile"
-            element={<Profile
-              dispatch={props.dispatch}
-              profilePage={props.state.PostsElements}
-            />} />
+            element={<Profile/>} />
         </Routes>
       </div>
     </div>
