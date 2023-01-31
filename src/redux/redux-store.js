@@ -3,6 +3,7 @@ import {combineReducers, createStore} from "redux";
 import reducetProfile from './reducer-post'
 import reducetDialog from './reducer-dialog'
 import reducerSaidBar from './reducer-saidbar'
+import reducetUsers from "./reducer-users";
 
 
 let reducers = combineReducers( // объединяем все reducers; 
@@ -11,6 +12,7 @@ let reducers = combineReducers( // объединяем все reducers;
         PostsElements: reducetProfile,
         DialogElements: reducetDialog,
         SaidBar: reducerSaidBar,
+        UsersElement: reducetUsers,
     }
 );
 

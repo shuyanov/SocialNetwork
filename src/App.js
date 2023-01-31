@@ -5,9 +5,10 @@ import Header from './components/Header/Header';
 import NavBar from './components/NavBar/NavBar';
 import './index'
 
-import {Routes, Route } from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
 import Massag from './components/Dialog/Massag';
 import DialogContainer from './components/Dialog/NewDialog/DialogContainer';
+import UsersContainer from './components/Users/UserConteiner';
 
 
 
@@ -15,14 +16,18 @@ const App = (props) => {
   return (
     <div className="app-wrapper">
       <Header />
-      <NavBar/>
+      <NavBar />
       <div className='app-wrapper-content'>
         <Routes>
           <Route path="/dialogs"
             element={<DialogContainer />} />
 
           <Route path="/profile"
-            element={<Profile/>} />
+            element={<Profile />} />
+
+          <Route path="/UserPage"
+            element={<UsersContainer />} />
+
         </Routes>
       </div>
     </div>

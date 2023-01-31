@@ -26,19 +26,12 @@ const reducetProfile = (state = initialState, action) => {
                 newPostsText: '',
                 postData: [...state.postData, newPost]
             };
-
-            // stateCopy.postData = [...state.postData];
-            // stateCopy.postData.push(newPost);
-            // stateCopy.newPostsText = '';
-            // return stateCopy;
         }
         case NEW_UPDATE_POST_TEXT: {
             return {
                 ...state,
                 newPostsText: action.newText
             };
-            // stateCopy.newPostsText = action.newText;
-            // return stateCopy;
         }
         default: {
             return state;
