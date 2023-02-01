@@ -3,16 +3,15 @@ import './App.css';
 import Profile from './components/Profile/Profile';
 import Header from './components/Header/Header';
 import NavBar from './components/NavBar/NavBar';
-import './index'
+
 
 import { Routes, Route } from "react-router-dom";
-import Massag from './components/Dialog/Massag';
 import DialogContainer from './components/Dialog/NewDialog/DialogContainer';
 import UsersContainer from './components/Users/UserConteiner';
 
 
 
-const App = (props) => {
+const App = () => {
   return (
     <div className="app-wrapper">
       <Header />
@@ -27,7 +26,6 @@ const App = (props) => {
 
           <Route path="/UserPage"
             element={<UsersContainer />} />
-
         </Routes>
       </div>
     </div>

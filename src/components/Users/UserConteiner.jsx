@@ -4,7 +4,6 @@ import { followAC, setUsersAC, unfollowAC } from '../../redux/reducer-users';
 import Users from './Users';
 
 
-
 let mapStateToProps = (state) => {
   return {
     usersData: state.UsersElement.usersData
