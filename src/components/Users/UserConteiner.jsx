@@ -52,6 +52,7 @@ let mapStateToProps = (state) => {
     isFetching: state.UsersElement.isFetching,
   }
 }
+// пример
 //прокидываем пропсы, но сейчас мы это делаем напрямую
 // let mapDispatchToProps = (dispatch) => {
 //   return {
