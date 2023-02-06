@@ -8,15 +8,15 @@ const TOGGET_IS_FETCHING = "TOGGET_IS_FETCHING";
 
 let initialState = {
     usersData: [],
+    contacts: [],
 
     pageSize: 5,
-    totalUsersCount: 10,
+    totalUsersCount: 20,
     currenPage: 1,
     isFetching: true,
 };
 
 const reducetUsers = (state = initialState, action) => {
-
     switch (action.type) {
         case FOLLOW:
             return {
@@ -43,14 +43,14 @@ const reducetUsers = (state = initialState, action) => {
             return { ...state, usersData: action.usersData }
         }
         case SET_USERS_CURRENT_PAGE: {
-            return { ...state, currenPage: action.currenPage}
+            return { ...state, currenPage: action.currenPage }
         }
         case SET_USERS_TOTAL_COUNT: {
             //return { ...state, totalUsersCount: action.сount}
-            return { ...state, totalUsersCount: 20}
+            return { ...state, totalUsersCount: 50 }
         }
         case TOGGET_IS_FETCHING: {
-            return { ...state, isFetching: action.isFetching}
+            return { ...state, isFetching: action.isFetching }
         }
         default: {
             return state;

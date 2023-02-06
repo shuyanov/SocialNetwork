@@ -1,3 +1,37 @@
  .post img{
   width: 600px;
 }
+
+.postWindow {
+  background-color: blue;
+
+  display: grid;
+  grid-template-columns: 10fr 1fr;
+}
+
+.Data{
+
+  display: grid;
+  grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
+}
+
+.Contacts{
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-areas:
+    ". a a ."
+    ". a a .";
+
+  background-color: bisque;
+}
+
+.item1{
+  grid-area: a;
+  align-self: center;
+  justify-self: center;
+}
+
+.userImage{
+  width: 50px;
+  height: 50px;
+}

@@ -1,6 +1,7 @@
 const ADD_POST = 'ADD-POST';
 const NEW_UPDATE_POST_TEXT = 'NEW-UPDATE-POST-TEXT';
 const SET_USERS_PROFILE = 'SET_USERS_PROFILE';
+const USER_CONTACTS = 'USER_CONTACTS';
 
 let initialState = {
     newPostsText: 'Write the post',
@@ -13,6 +14,7 @@ let initialState = {
     ],
 
     profilePhoto: null,
+    userContacts: 'NoData',
 }
 
 const reducetProfile = (state = initialState, action) => {
@@ -39,7 +41,9 @@ const reducetProfile = (state = initialState, action) => {
         case SET_USERS_PROFILE: {
             return { ...state, profilePhoto: action.profilePhoto };
         }
-
+        case USER_CONTACTS: {
+            return { ...state, userContacts: action.userContacts };
+        }
         default: {
             return state;
         }
@@ -48,5 +52,7 @@ const reducetProfile = (state = initialState, action) => {
 export const addPostActionCreate = () => ({ type: ADD_POST });
 export const newUpdatePostActionCreate = (text) => ({ type: NEW_UPDATE_POST_TEXT, newText: text });
 export const setUsersProfile = (profilePhoto) => ({ type: SET_USERS_PROFILE, profilePhoto: profilePhoto });
+
+export const setContacts = (userContacts) => ({ type: USER_CONTACTS, userContacts: userContacts });
 
 export default reducetProfile;

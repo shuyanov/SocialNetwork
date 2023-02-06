@@ -4,8 +4,11 @@ import ProfileInfo from './ProfileInfo';
 const Profile = (props) => {
   return (
     <div>
-      <ProfileInfo profilePhoto = {props.profilePhoto}/>
-      <MyPostsContainer/>
+      <ProfileInfo
+        profilePhoto={props.profilePhoto}
+        userContacts={props.userContacts}
+      />
+      <MyPostsContainer />
     </div>
   )
 }

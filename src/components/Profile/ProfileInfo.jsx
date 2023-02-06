@@ -1,8 +1,8 @@
 import Preloader from '../common/Preloder/Preloader';
+import UserContacts from '../common/Preloder/UserContacts';
 import sd from './Profile.module.css';
 
 const ProfileInfo = (props) => {
-
     if (!props.profilePhoto) {
         return (
             <div>
@@ -14,10 +14,12 @@ const ProfileInfo = (props) => {
         <div className={sd.post}>
             <img src='https://gamemag.ru/images/cache/News/News167810/7ed34006a1-2_1390x600.jpg' />
         </div>
-        <div>
+        <div className={sd.postWindow}>
             <img src={props.profilePhoto.photos.large} />
+            <div>
+                <UserContacts userContacts = {props.userContacts}/>
+            </div>
         </div>
     </div>
 }
-
 export default ProfileInfo; 
