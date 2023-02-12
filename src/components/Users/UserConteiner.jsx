@@ -8,7 +8,10 @@ import Preloader from '../common/Preloder/Preloader';
 class UsersComponentAPI extends React.Component {
   componentDidMount() {
     this.props.toogleisFetching(true);
-    axios.get(`https://social-network.samuraijs.com/api/1.0/users?page=${this.props.currenPage}&count=${this.props.totalUsersCount}`)
+    //axios.get(`https://social-network.samuraijs.com/api/1.0/users?page=${this.props.currenPage}&count=${this.props.totalUsersCount}`)
+    axios.get(`https://social-network.samuraijs.com/api/1.0/users?page=${2}&count=${20}`,{
+      withCredentials: true
+    })
       .then(response => {
         this.props.toogleisFetching(false);
         this.props.setUsers(response.data.items)
@@ -19,7 +22,10 @@ class UsersComponentAPI extends React.Component {
   onPageChanged = (pageNumber) => {//идет запрос при нажатии кнопки
     this.props.setUsersCurrentPage(pageNumber)
     this.props.toogleisFetching(true);
-    axios.get(`https://social-network.samuraijs.com/api/1.0/users?page=${pageNumber}&count=${this.props.totalUsersCount}`)
+    //axios.get(`https://social-network.samuraijs.com/api/1.0/users?page=${pageNumber}&count=${this.props.totalUsersCount}`)
+    axios.get(`https://social-network.samuraijs.com/api/1.0/users?page=${2}&count=${20}`,{
+      withCredentials: true
+    })
       .then(response => {
         this.props.toogleisFetching(false);
         this.props.setUsers(response.data.items)

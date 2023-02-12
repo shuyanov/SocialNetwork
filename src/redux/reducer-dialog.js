@@ -17,7 +17,6 @@ let initialState = {
         { id: 3, massag: "Yop" },
         { id: 4, massag: "Watsap" },
         { id: 5, massag: "you good look" },
-
     ],
 }
 

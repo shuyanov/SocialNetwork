@@ -49,6 +49,7 @@ const reducetProfile = (state = initialState, action) => {
         }
     }
 }
+
 export const addPostActionCreate = () => ({ type: ADD_POST });
 export const newUpdatePostActionCreate = (text) => ({ type: NEW_UPDATE_POST_TEXT, newText: text });
 export const setUsersProfile = (profilePhoto) => ({ type: SET_USERS_PROFILE, profilePhoto: profilePhoto });
