@@ -1,10 +1,12 @@
-import {combineReducers, createStore} from "redux";
+import {applyMiddleware, combineReducers, createStore} from "redux";
 
-import reducerProfile from './reducer-post'
-import reducetDialog from './reducer-dialog'
-import reducerSaidBar from './reducer-saidbar'
+import reducerProfile from './reducer-post';
+import reducetDialog from './reducer-dialog';
+import reducerSaidBar from './reducer-saidbar';
 import reducetUsers from "./reducer-users";
 import authReducer from "./reducer-auth";
+import thunkMiddleware from 'redux-thunk';
+
 
 let reducers = combineReducers( // объединяем все reducers; 
     {
@@ -17,7 +19,7 @@ let reducers = combineReducers( // объединяем все reducers;
     }
 );
 
-let store = createStore(reducers);
+let store = createStore(reducers, applyMiddleware(thunkMiddleware));
 window.store = store;
 
 export default store;

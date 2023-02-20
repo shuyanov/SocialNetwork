@@ -2,6 +2,7 @@ import React from 'react';
 import classes from './Dialog.module.css';
 import Massages from './NewMassag/Massages';
 import DialogItem from './NewMassag/DialogItem';
+import { Navigate } from 'react-router-dom';
 
 
 const Dialog = (props) => {
@@ -20,6 +21,8 @@ const Dialog = (props) => {
         let newText = newMassag.current.value;
         props.newUpdateDialogText(newText)
     };
+
+    //if (!props.isAuth) return <Navigate  to="/login" />
 
     return (
         <div className={classes.Dialogs}>

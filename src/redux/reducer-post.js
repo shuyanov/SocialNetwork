@@ -1,3 +1,5 @@
+import userAPI from "../API/api";
+
 const ADD_POST = 'ADD-POST';
 const NEW_UPDATE_POST_TEXT = 'NEW-UPDATE-POST-TEXT';
 const SET_USERS_PROFILE = 'SET_USERS_PROFILE';
@@ -15,6 +17,7 @@ let initialState = {
 
     profilePhoto: null,
     userContacts: 'NoData',
+    isAuth: false,
 }
 
 const reducetProfile = (state = initialState, action) => {
@@ -53,7 +56,16 @@ const reducetProfile = (state = initialState, action) => {
 export const addPostActionCreate = () => ({ type: ADD_POST });
 export const newUpdatePostActionCreate = (text) => ({ type: NEW_UPDATE_POST_TEXT, newText: text });
 export const setUsersProfile = (profilePhoto) => ({ type: SET_USERS_PROFILE, profilePhoto: profilePhoto });
-
 export const setContacts = (userContacts) => ({ type: USER_CONTACTS, userContacts: userContacts });
+
+export const getProfile = (userId) => {
+    return (dispatch) => {
+        userAPI.getProfile(userId)
+            .then(response => {
+                dispatch(setUsersProfile(response.data));
+                dispatch(setContacts(response.data));
+            });
+    }
+}
 
 export default reducetProfile;

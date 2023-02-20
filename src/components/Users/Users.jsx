@@ -1,6 +1,5 @@
-import axios from 'axios';
 import React from 'react';
-import { NavLink } from 'react-router-dom';
+import { Navigate, NavLink } from 'react-router-dom';
 import userPhoto from './../../assets/images/user.jpg'
 import userDisign from './Users.module.css'
 
@@ -11,6 +10,8 @@ let Users = (props) => {
     for (let i = 1; i <= pagesCount; i++) {
         pages.push(i);
     }
+
+    if (!props.isAuth) return <Navigate to="/login" />
 
     return (
         <div>
@@ -33,30 +34,15 @@ let Users = (props) => {
                         </NavLink>
                         <div>
                             {u.followed
-                                ? <button onClick={() => {
-                                    axios.delete(`https://social-network.samuraijs.com/api/1.0/follow/${u.id}`,
-                                        {
-                                            withCredentials: true,
-                                            headers: {'API-KEY' : '3ca66285-a17e-478c-8427-4e5ffbf8bfbb'}
-                                        })
-                                        .then(response => {
-                                            if (response.data.resultCode == 0) {
-                                                props.unfollow(u.id)
-                                            }
-                                        });
+                                ? <button disabled={props.isFetchingButtonFollow.some(id => id === u.id)} onClick={() => {
+                                    //userAPI.getUserButtonUnfollow(u.id, props.unfollowSuccess, props.toogleFollowProgress)
+                                    props.follow(u.id);
                                 }}>Unfollow</button>
-                                : <button onClick={() => {
-                                    axios.post(`https://social-network.samuraijs.com/api/1.0/follow/${u.id}`, {},
-                                        {
-                                            withCredentials: true,
-                                            headers: {'API-KEY' : '3ca66285-a17e-478c-8427-4e5ffbf8bfbb'}
-                                        })
-                                        .then(response => {
-                                            if (response.data.resultCode == 0) {
-                                                props.follow(u.id)
-                                            }
-                                        });
-                                }}>Follow</button>}
+                                : <button disabled={props.isFetchingButtonFollow.some(id => id === u.id)} onClick={() => {
+                                    //userAPI.getUserButtonFollow(u.id, props.followSuccess, props.toogleFollowProgress)
+                                    props.unFollow(u.id);
+                                }}>Follow</button>
+                            }
                         </div>
                     </span>
                     <span>
@@ -69,10 +55,10 @@ let Users = (props) => {
                             <div>{'u.location.country'}</div>
                         </span>
                     </span>
-                </div>
+                </div >
                 )
             }
-        </div>
+        </div >
     )
 }
 

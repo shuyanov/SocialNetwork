@@ -1,6 +1,7 @@
 import Post from './NewPost/Post';
 import postsContent from './Posts.module.css'
 import React from 'react';
+import { Navigate } from 'react-router-dom';
 
 const PostsNews = (props) => {
   let state = props.PostsElements;
@@ -15,6 +16,8 @@ const PostsNews = (props) => {
     props.newUpdatePostText(text);
   };
 
+ // if (!props.isAuth) return <Navigate  to="/login" />
+  
   return (
     <div className={postsContent.content}>
       <div>

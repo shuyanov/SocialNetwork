@@ -6,6 +6,7 @@ import DialogContainer from './components/Dialog/NewDialog/DialogContainer';
 import UsersContainer from './components/Users/UserConteiner';
 import ProfileContainerofile from './components/Profile/ProfileContainer';
 import HeaderContainer from './components/Header/HeaderContainer';
+import Login from './components/Login/login';
 
 
 
@@ -15,16 +16,19 @@ const App = () => {
       <HeaderContainer />
       <NavBar />
       <div className='app-wrapper-content'>
-          <Routes>
-            <Route path="/dialogs"
-              element={<DialogContainer />} />
+        <Routes>
+          <Route path="/dialogs"
+            element={<DialogContainer />} />
 
-            <Route path="/profile/:userId?"
+          <Route path="/profile/:userId?"
             element={<ProfileContainerofile />} />
 
-            <Route path="/UserPage"
-              element={<UsersContainer />} />
-          </Routes>
+          <Route path="/UserPage"
+            element={<UsersContainer />} />
+
+          <Route path="/login"
+            element={<Login />} />
+        </Routes>
       </div>
     </div>
   );
