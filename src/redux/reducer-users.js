@@ -81,6 +81,7 @@ export const getUser = (currenPage, totalUsersCount) => {
         dispatch(toogleisFetching(true))
         userAPI.getUser(currenPage, totalUsersCount)
             .then(data => {
+                dispatch(setUsersCurrentPage(currenPage));
                 dispatch(toogleisFetching(false));
                 dispatch(setUsers(data.items));
                 dispatch(setTotalUserCount(data.totalCount));
@@ -91,7 +92,7 @@ export const getUser = (currenPage, totalUsersCount) => {
 export const follow = (userId) => {
     return (dispatch) => {
         dispatch(toogleFollowProgress(true, userId))
-        userAPI.getUserButtonUnfollow(userId)
+        userAPI.getUserButtonFollow(userId)
             .then(response => {
                 if (response.data.resultCode == 0) {
                     dispatch(followSuccess(userId));

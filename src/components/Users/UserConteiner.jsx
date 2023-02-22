@@ -4,6 +4,7 @@ import { getUser, setUsersCurrentPage, toogleFollowProgress, follow, unFollow, t
 import Users from './Users';
 import Preloader from '../common/Preloder/Preloader';
 import { withAuthRedirect } from '../hoc/withAuthRedirect';
+import { compose } from 'redux';
 
 class UsersComponentAPI extends React.Component {
   componentDidMount() {
@@ -28,6 +29,8 @@ class UsersComponentAPI extends React.Component {
         isFetchingButtonFollow={this.props.isFetchingButtonFollow}
         follow={this.props.follow}
         unFollow={this.props.unFollow}
+        setCurrentPage={this.props.currenPage}
+
       />
     </>
   }
@@ -35,7 +38,6 @@ class UsersComponentAPI extends React.Component {
 
 let mapStateToProps = (state) => {
   return {
-    isAuth: state.AuthElement.isAuth,
     usersData: state.UsersElement.usersData,
     pageSize: state.UsersElement.pageSize,
     totalUsersCount: state.UsersElement.totalUsersCount,
@@ -59,13 +61,18 @@ let mapStateToProps = (state) => {
 //   }
 // }
 
-// let AuthRedirectComponent = withAuthRedirect(UsersComponentAPI)
-// let mapStateToPropsForReduser = (state) => ({
-//   isAuth: state.AuthElement.isAuth
-// })
-// AuthRedirectComponent = connect(mapStateToPropsForReduser)(AuthRedirectComponent)
+// export default compose(
+//   withAuthRedirect,
+//   connect(mapStateToProps,{ setUsersCurrentPage, toogleFollowProgress, getUser, follow, unFollow, toogleisFetching }),
+//   )(UsersComponentAPI)
+
+let AuthRedirectComponent = withAuthRedirect(UsersComponentAPI)
+let mapStateToPropsForReduser = (state) => ({
+  isAuth: state.AuthElement.isAuth
+})
+AuthRedirectComponent = connect(mapStateToPropsForReduser)(AuthRedirectComponent)
 
 export default connect(mapStateToProps,
   {
     setUsersCurrentPage, toogleFollowProgress, getUser, follow, unFollow, toogleisFetching
-  },)(UsersComponentAPI);
+  },)(AuthRedirectComponent);

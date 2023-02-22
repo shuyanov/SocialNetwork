@@ -11,8 +11,6 @@ let Users = (props) => {
         pages.push(i);
     }
 
-    if (!props.isAuth) return <Navigate to="/login" />
-
     return (
         <div>
             <div>
@@ -20,7 +18,7 @@ let Users = (props) => {
                     pages.map(p => {
                         return <span
                             onClick={(e) => { props.onPageChanged(p) }}
-                            className={props.currenPage === p && userDisign.stylePage}> {p} </span>
+                            className={props.currenPage === p && userDisign.stylePage}>{p}</span>
                     })
                 }
             </div>
@@ -36,11 +34,11 @@ let Users = (props) => {
                             {u.followed
                                 ? <button disabled={props.isFetchingButtonFollow.some(id => id === u.id)} onClick={() => {
                                     //userAPI.getUserButtonUnfollow(u.id, props.unfollowSuccess, props.toogleFollowProgress)
-                                    props.follow(u.id);
+                                    props.unFollow(u.id);
                                 }}>Unfollow</button>
                                 : <button disabled={props.isFetchingButtonFollow.some(id => id === u.id)} onClick={() => {
                                     //userAPI.getUserButtonFollow(u.id, props.followSuccess, props.toogleFollowProgress)
-                                    props.unFollow(u.id);
+                                    props.follow(u.id);
                                 }}>Follow</button>
                             }
                         </div>
