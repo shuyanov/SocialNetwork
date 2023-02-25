@@ -1,9 +1,10 @@
-import userAPI from "../API/api";
+import { userAPI, profileAPI } from "../API/api";
 
 const ADD_POST = 'ADD-POST';
 const NEW_UPDATE_POST_TEXT = 'NEW-UPDATE-POST-TEXT';
 const SET_USERS_PROFILE = 'SET_USERS_PROFILE';
 const USER_CONTACTS = 'USER_CONTACTS';
+const SET_STATUS = 'SET_STATUS';
 
 let initialState = {
     newPostsText: 'Write the post',
@@ -18,6 +19,7 @@ let initialState = {
     profilePhoto: null,
     userContacts: 'NoData',
     isAuth: false,
+    status: "",
 }
 
 const reducetProfile = (state = initialState, action) => {
@@ -47,6 +49,9 @@ const reducetProfile = (state = initialState, action) => {
         case USER_CONTACTS: {
             return { ...state, userContacts: action.userContacts };
         }
+        case SET_STATUS: {
+            return { ...state, status: action.status };
+        }
         default: {
             return state;
         }
@@ -57,6 +62,7 @@ export const addPostActionCreate = () => ({ type: ADD_POST });
 export const newUpdatePostActionCreate = (text) => ({ type: NEW_UPDATE_POST_TEXT, newText: text });
 export const setUsersProfile = (profilePhoto) => ({ type: SET_USERS_PROFILE, profilePhoto: profilePhoto });
 export const setContacts = (userContacts) => ({ type: USER_CONTACTS, userContacts: userContacts });
+export const setStatus = (status) => ({ type: SET_STATUS, status});
 
 export const getProfile = (userId) => {
     return (dispatch) => {
@@ -64,6 +70,25 @@ export const getProfile = (userId) => {
             .then(response => {
                 dispatch(setUsersProfile(response.data));
                 dispatch(setContacts(response.data));
+            });
+    }
+}
+
+export const getStatus = (userId) => {
+    return (dispatch) => {
+        profileAPI.getStatus(userId)
+            .then(response => {
+                dispatch(setStatus(response.data));
+            });
+    }
+}
+
+export const updateStatus = (status) => {
+    return (dispatch) => {
+        profileAPI.updateStatus(status)
+            .then(response => {
+                if(response.data)
+                dispatch(setStatus(status));
             });
     }
 }

@@ -1,5 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import { compose } from 'redux';
 import { addPostActionCreate, newUpdatePostActionCreate } from '../../../redux/reducer-post';
 import { withAuthRedirect } from '../../hoc/withAuthRedirect';
 import PostsNews from './Posts';
@@ -21,13 +22,7 @@ let mapDispatchToProps = (dispatch) => {
   }
 }
 
-let AuthRedirectComponent = withAuthRedirect(PostsNews) 
-let mapStateToPropsForReduser = (state) => ({
-    isAuth: state.AuthElement.isAuth
-})
-AuthRedirectComponent = connect(mapStateToPropsForReduser)(AuthRedirectComponent) 
-
-
-const MyPostsContainer = connect(mapStateToProps, mapDispatchToProps)(AuthRedirectComponent)
-
-export default MyPostsContainer;
+export default compose(
+  //withAuthRedirect,
+  connect(mapStateToProps, mapDispatchToProps)
+)(PostsNews)

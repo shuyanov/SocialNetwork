@@ -61,18 +61,7 @@ let mapStateToProps = (state) => {
 //   }
 // }
 
-// export default compose(
-//   withAuthRedirect,
-//   connect(mapStateToProps,{ setUsersCurrentPage, toogleFollowProgress, getUser, follow, unFollow, toogleisFetching }),
-//   )(UsersComponentAPI)
-
-let AuthRedirectComponent = withAuthRedirect(UsersComponentAPI)
-let mapStateToPropsForReduser = (state) => ({
-  isAuth: state.AuthElement.isAuth
-})
-AuthRedirectComponent = connect(mapStateToPropsForReduser)(AuthRedirectComponent)
-
-export default connect(mapStateToProps,
-  {
-    setUsersCurrentPage, toogleFollowProgress, getUser, follow, unFollow, toogleisFetching
-  },)(AuthRedirectComponent);
+export default compose(
+  withAuthRedirect,
+  connect(mapStateToProps,{ setUsersCurrentPage, toogleFollowProgress, getUser, follow, unFollow, toogleisFetching }),
+  )(UsersComponentAPI)
