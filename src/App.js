@@ -1,7 +1,6 @@
 import React from 'react';
 import Profile from './components/Profile/Profile';
-import Header from './components/Header/Header';
-import NavBar from './components/NavBar/NavBar';
+import Header from './components/Cells/Header/Header';
 import Dialogs from './components/Dialog/Dialog';
 import './App.css';
 import './index'
@@ -9,14 +8,21 @@ import './index'
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import FlexContainer from './Common/FlexContainer/FlexContainer';
 import { LayOut } from './Common/LayOut/LayOut';
+import { NavBar } from './components/Cells/NavBar/NavBar';
+import { HomePage } from './components/Pages/HomePage/HomPage';
 
 const App = (props) => {
   return (
-    <div>
-      <LayOut.Header>
-        <Header />
-      </LayOut.Header>
-    </div>
+    <BrowserRouter>
+      <div>
+        <LayOut.Header>
+          <Header />
+        </LayOut.Header>
+        <LayOut.Body>
+          <HomePage />
+        </LayOut.Body>
+      </div>
+    </BrowserRouter>
 
     // <BrowserRouter>
     //   <div className="app-wrapper">

@@ -1,11 +1,10 @@
-import FlexContainer from "../../Common/FlexContainer/FlexContainer";
+import FlexContainer from "../../../Common/FlexContainer/FlexContainer";
 import style from "./Header.module.css";
 
 const Header = () => {
   return (
     <FlexContainer
       className={style.Header}
-      width={1440}
       height={100}
       justifyContent={"start"}
       alignItems={"center"}

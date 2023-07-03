@@ -1,0 +1,30 @@
+.nav {
+  border-radius: 5px;
+  width: 220px;
+  background-color: #d9d9d9;
+}
+
+.item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background: #e8e8e8;
+  width: 200px;
+  height: 30px;
+  flex-shrink: 0;
+}
+
+.item:active {
+  background: #c5c4c4;
+}
+
+
+.item a {
+  color: rgb(0, 0, 0);
+  text-decoration: none;
+}
+
+.item a.active {
+  color: #ee492a;
+}

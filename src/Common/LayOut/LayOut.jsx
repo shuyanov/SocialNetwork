@@ -17,7 +17,7 @@ const Header = ({ children }) => {
 const Body = ({ children }) => {
   return (
     <FlexContainer
-      style={{ minHeight: 1000, paddingTop: 100 }}
+      style={{ minHeight: 10, paddingTop: 20 }}
       justifyContent="center"
     >
       {children}
