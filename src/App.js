@@ -7,6 +7,7 @@ import Dialogs from './components/Dialog/Dialog';
 import './index'
 
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import FlexContainer from './Common/FlexContainer/FlexContainer';
 
 
 
