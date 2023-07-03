@@ -1,3 +1,34 @@
-.Header{
-   background-color: white;
+.Header {
+  background-color: white;
+}
+
+.input {
+  background-color: #d9d9d9;
+  width: 350px;
+  height: 50px;
+  border-radius: 15px;
+  border: none;
+}
+
+.Logo {
+  background-color: #d9d9d9;
+  transform: rotate(44.223deg);
+  width: 50px;
+  height: 50px;
+}
+
+.button {
+  background-color: #d9d9d9;
+  width: 50px;
+  height: 50px;
+  border-radius: 5px;
+  border: none;
+}
+
+.button::after {
+  background: #c8c7c7;
+}
+
+.button:active {
+  background: #c8c7c7;
 }
