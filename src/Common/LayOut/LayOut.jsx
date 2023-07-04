@@ -14,6 +14,28 @@ const Header = ({ children }) => {
   );
 };
 
+const MassagesBar = ({ children }) => {
+  return (
+    <FlexContainer
+      style={{ marginRight: 35, paddingTop: 20 }}
+      justifyContent="end"
+    >
+      {children}
+    </FlexContainer>
+  );
+};
+
+const NavBar = ({ children }) => {
+  return (
+    <FlexContainer
+      style={{ marginLeft: 35, paddingTop: 20 }}
+      justifyContent="start"
+    >
+      {children}
+    </FlexContainer>
+  );
+};
+
 const Body = ({ children }) => {
   return (
     <FlexContainer
@@ -31,3 +53,5 @@ export const LayOut = ({ children }) => {
 
 LayOut.Header = Header;
 LayOut.Body = Body;
+LayOut.NavBar = NavBar;
+LayOut.MassagesBar = MassagesBar;

@@ -19,7 +19,7 @@ const App = (props) => {
           <Header />
         </LayOut.Header>
         <LayOut.Body>
-          <HomePage />
+          <HomePage props={props.steam} />
         </LayOut.Body>
       </div>
     </BrowserRouter>
